@@ -1,4 +1,5 @@
 import "./NavBar.css";
+import CartWidget from "../CartWidget/CartWidget";
 
 function NavBar() {
   return (
@@ -15,7 +16,7 @@ function NavBar() {
             <button>Nosotros</button>
           </li>
           <li>
-            <img src="./logo192.png" alt="imagen del logo" /> 2
+            <CartWidget />
           </li>
         </ul>
       </nav>
