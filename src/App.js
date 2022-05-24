@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <CountFuncton />
+      <CountFuncton cantidad={5} />
       <ItemListContainer greeting="Comienza el E-commerce" />
     </div>
   );

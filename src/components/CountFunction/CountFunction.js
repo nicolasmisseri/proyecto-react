@@ -2,16 +2,18 @@ import { useState } from "react";
 
 const CountFunction = (props) => {
   //   const state = useState(0);
-  //   const count = state[0];
+  //   count = props.cantidad;
   //   const setCount = state[1];
 
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(props.cantidad);
 
   const decrement = () => {
-    setCount(count - 1);
+    if (count > 0) {
+      setCount(count - 1);
+    }
   };
   const increment = () => {
-    setCount(count + 1);
+    if (count < props.cantidad) setCount(count + 1);
   };
   return (
     <div style={{ display: "flex" }}>
