@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 const CountFunction = (props) => {
   //   const state = useState(0);
   //   count = props.cantidad;
