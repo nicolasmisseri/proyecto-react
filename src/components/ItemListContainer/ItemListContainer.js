@@ -1,6 +1,6 @@
 import "./ItemListContainer.css";
 import { useState, useEffect } from "react";
-import { getProducts } from "../data/arrayLibros";
+import { getProducts } from "../data/asyncmock";
 import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = (props) => {
@@ -14,9 +14,6 @@ const ItemListContainer = (props) => {
 
   return (
     <div className="ItemListContainer">
-      {/* {products.map((product) => (
-        <p key={product.ID}>{product.title}</p>
-      ))} */}
       <ItemList products={products} />
     </div>
   );

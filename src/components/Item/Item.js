@@ -1,10 +1,16 @@
 import "./Item.css";
 
-const Item = ({ id, title, author }) => {
+const Item = ({ id, name, description, img }) => {
   return (
-    <div>
-      <h3>Titulo: {title}</h3>
-      <p>Autor: {author}</p>
+    <div className="cards-list">
+      <div className="card 1">
+        <div className="card_image">
+          <img src={img} alt={description} />
+        </div>
+        <div className="card_title title-white">
+          <p>{name}</p>
+        </div>
+      </div>
     </div>
   );
 };
