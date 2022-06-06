@@ -1,6 +1,6 @@
 import "./ItemDetail.css";
 
-const ItemDetail = (name, description, price, img) => {
+const ItemDetail = ({ name, description, price, img }) => {
   <div id="container">
     <div className="product-details">
       <h1>{name}</h1>

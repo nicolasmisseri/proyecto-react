@@ -8,18 +8,26 @@ function NavBar() {
       <nav>
         <ul>
           <li>
-            <span>BasketStore</span>
+            <Link className="item-menu" to={"/"}>
+              BasketStore
+            </Link>
           </li>
           <li>
-            <Link to={"/"}>Home</Link>
+            <Link className="item-menu" to={`/category/pelotas`}>
+              Pelotas
+            </Link>
           </li>
           <li>
-            <Link to={"/a"}>Productos</Link>
+            <Link className="item-menu" to={`/category/zapatillas`}>
+              Zapatillas
+            </Link>
           </li>
           <li>
-            <Link to={"/a"}>About</Link>
+            <Link className="item-menu" to={`/category/aros`}>
+              Aros
+            </Link>
           </li>
-          <li>
+          <li className="">
             <CartWidget />
           </li>
         </ul>

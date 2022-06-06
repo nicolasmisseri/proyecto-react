@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import NavBar from "./components/NavBar/NavBar";
-import CountFuncton from "./components/CountFunction/CountFunction";
+// import CountFuncton from "./components/CountFunction/CountFunction";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import "./App.css";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
@@ -14,8 +14,9 @@ function App() {
         {/* <CountFuncton cantidad={5} /> */}
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
+          <Route path="/category/:id" element={<ItemListContainer />} />
           {/* <ItemListContainer /> */}
-          <Route path="/a" element={<ItemDetailContainer />} />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
           {/* <ItemDetailContainer /> */}
           <Route path="*" element={<h1>PAGE 404 NOT FOUND</h1>} />
         </Routes>

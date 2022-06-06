@@ -7,8 +7,11 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState();
   console.log(product);
+
+  const { id } = useParams();
+  console.log(id);
   useEffect(() => {
-    getProductsById("2").then((response) => {
+    getProductsById(id).then((response) => {
       setProduct(response);
     });
   }, []);
@@ -34,6 +37,7 @@ const ItemDetailContainer = () => {
           <img src={product?.img} alt={product?.description} />
         </div>
       </div>
+      <ItemDetail {...product} />
       {/* <p>******************* Mostrar solo uno ********************</p>
       <Item key={products.id} {...products} />
       <CountFunction cantidad={5} />
