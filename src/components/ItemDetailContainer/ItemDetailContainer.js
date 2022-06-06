@@ -18,30 +18,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-      <div id="container">
-        <div className="product-details">
-          <h1>{product?.name}</h1>
-          <p className="information">{product?.description}</p>
-          <div className="control">
-            <button className="btn">
-              <span className="price">US$ {product?.price}</span>
-              <span className="shopping-cart">
-                <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-              </span>
-              <span className="buy">Comprar</span>
-            </button>
-          </div>
-        </div>
-
-        <div className="product-image">
-          <img src={product?.img} alt={product?.description} />
-        </div>
-      </div>
       <ItemDetail {...product} />
-      {/* <p>******************* Mostrar solo uno ********************</p>
-      <Item key={products.id} {...products} />
-      <CountFunction cantidad={5} />
-      <p>*******************************************************</p> */}
     </div>
   );
 };
