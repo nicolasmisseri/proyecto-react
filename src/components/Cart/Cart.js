@@ -1,17 +1,29 @@
 import { useContext } from "react";
 import CartContext from "../../context/CartContext";
+import ItemCart from "../ItemCart/ItemCart";
 
 const Cart = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, clear } = useContext(CartContext);
 
   return (
     <div>
       <h1>Cart</h1>
       <div>
-        {cart.map((prod) => (
-          <div key={prod.id}>{prod.name}</div>
-        ))}
+        {cart
+          ? cart.map((prod) => (
+              <ItemCart
+                key={prod.product.id}
+                id={prod.product.id}
+                name={prod.product.name}
+                description={prod.product.description}
+                price={prod.product.price}
+                img={prod.product.img}
+              />
+            ))
+          : []}
       </div>
+
+      <button onClick={() => clear()}>Borrar Todo</button>
     </div>
   );
 };

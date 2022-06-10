@@ -1,4 +1,6 @@
 import { useState } from "react";
+// import { useContext } from "react";
+// import CartContext from "../../context/CartContext";
 
 const ItemCount = ({ stock = 0, initial = 1, handleOnAdd }) => {
   const [quantity, setQuantity] = useState(initial);
@@ -14,7 +16,9 @@ const ItemCount = ({ stock = 0, initial = 1, handleOnAdd }) => {
       setQuantity(quantity - 1);
     }
   };
-
+  // const handleClick = (num) => {
+  //   addItem(num)
+  // }
   return (
     <div>
       <div>

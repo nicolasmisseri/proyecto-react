@@ -3,6 +3,7 @@ import CartContext from "../../context/CartContext";
 
 const CartWidget = () => {
   const { getQuantity } = useContext(CartContext);
+  console.log("QUANTITY", getQuantity);
   const quantity = getQuantity();
   return (
     <div>
@@ -12,3 +13,4 @@ const CartWidget = () => {
   );
 };
 export default CartWidget;
+
