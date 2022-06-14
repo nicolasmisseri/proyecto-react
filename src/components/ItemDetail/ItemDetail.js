@@ -9,7 +9,6 @@ const ItemDetail = ({ id, name, description, price, img, stock }) => {
 
   const { addItem } = useContext(CartContext);
   const handleOnAdd = (quantity) => {
-    console.log(quantity);
     setQuantity(quantity);
     addItem({ id, name, price, quantity }, quantity);
   };

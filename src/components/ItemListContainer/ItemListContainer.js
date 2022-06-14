@@ -7,27 +7,18 @@ import { useParams } from "react-router-dom";
 const ItemListContainer = (props) => {
   const [products, setProducts] = useState([]);
 
-  const { param } = useParams();
-  console.log("useparam!!", param);
-  console.log("locationn", window.location.pathname.split("/")[1]);
-  const ruta = window.location.pathname.split("/")[1];
-  const id = window.location.pathname.split("/")[2];
-
+  const { id } = useParams();
   useEffect(() => {
-    if (ruta === "category") {
-      console.log("este es el id", id);
+    if (id) {
       getProductsByCategory(id).then((response) => {
         setProducts(response);
       });
-
-      console.log("estos son las categorias", products);
     } else {
       getProducts().then((response) => {
         setProducts(response);
       });
-      console.log("estos son los productos", products);
     }
-  }, [ruta, id]);
+  }, [id]);
 
   return (
     <div className="ItemListContainer">
