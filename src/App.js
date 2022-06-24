@@ -6,6 +6,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart/Cart";
 import { CartContextProvider } from "./context/CartContext";
+import ContactForm from "./components/ContactForm/ContactForm";
 
 export const Context = createContext();
 
@@ -21,6 +22,7 @@ const App = () => {
             <Route path="/item/:id" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="*" element={<h1>PAGE 404 NOT FOUND</h1>} />
+            <Route path="/contactForm" element={<ContactForm />} />
           </Routes>
         </BrowserRouter>
       </CartContextProvider>
