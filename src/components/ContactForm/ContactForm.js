@@ -1,15 +1,22 @@
-import { useState } from "react";
-const ContactForm = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+const ContactForm = (
+  {name,
+  email,
+  phone,
+  setName,
+  setEmail,
+  setPhone,
+  handleSubmit}
+) => {
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [phone, setPhone] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const response = { name, email, phone };
-    console.log("response", response);
-    return response;
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const response = { name, email, phone };
+  //   console.log("response", response);
+  //   return response;
+  // };
 
   return (
     <form onSubmit={handleSubmit}>

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 import ItemCart from "../ItemCart/ItemCart";
@@ -9,14 +9,25 @@ import ContactForm from "../ContactForm/ContactForm";
 const Cart = () => {
   const { cart, clear, getTotalPrice } = useContext(CartContext);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const response = { name, email, phone };
+    console.log("response", response);
+    return response;
+  };
+
   const createOrder = () => {
     console.log("ORDEN GENERADA");
 
     const objOrder = {
       buyer: {
-        name: "Nicolas Misseri",
-        email: "nicomissseri1@gmail.com",
-        phone: "2215468807",
+        name: { name },
+        email: { email },
+        phone: { phone },
       },
       items: cart,
       total: getTotalPrice(),
@@ -65,7 +76,15 @@ const Cart = () => {
         </button>
       )}
 
-      <ContactForm />
+      <ContactForm
+        name={name}
+        email={email}
+        phone={phone}
+        setName={setName}
+        setEmail={setEmail}
+        setPhone={setPhone}
+        handleSubmit={handleSubmit}
+      />
     </div>
   );
 };
