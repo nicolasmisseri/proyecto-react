@@ -47,7 +47,7 @@ const ContactForm = (
         onChange={(e) => setPhone(e.target.value)}
       ></input>
       <br />
-      <button type="submit">Enviar Formulario</button>
+      {/* <button type="submit">Enviar Formulario</button> */}
     </form>
   );
 };

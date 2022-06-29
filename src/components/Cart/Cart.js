@@ -14,7 +14,7 @@ const Cart = () => {
   const [phone, setPhone] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const response = { name, email, phone };
     console.log("response", response);
     return response;
@@ -43,6 +43,15 @@ const Cart = () => {
   return (
     <div>
       <h1>Cart</h1>
+      <ContactForm
+        name={name}
+        email={email}
+        phone={phone}
+        setName={setName}
+        setEmail={setEmail}
+        setPhone={setPhone}
+        handleSubmit={handleSubmit}
+      />
       <div>
         {productsInCart ? (
           <>
@@ -70,13 +79,17 @@ const Cart = () => {
 
       <button onClick={() => clear()}>Borrar Todo</button>
       {!productsInCart && (
-        <button onClick={createOrder}>
-          {" "}
-          <Link to={"/contactForm"}>Generar Orden</Link>
+        <button
+          onClick={() => {
+            createOrder();
+            handleSubmit();
+          }}
+        >
+          Generar Orden
         </button>
       )}
 
-      <ContactForm
+      {/* <ContactForm
         name={name}
         email={email}
         phone={phone}
@@ -84,7 +97,7 @@ const Cart = () => {
         setEmail={setEmail}
         setPhone={setPhone}
         handleSubmit={handleSubmit}
-      />
+      /> */}
     </div>
   );
 };
