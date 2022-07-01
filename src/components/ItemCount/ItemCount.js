@@ -1,6 +1,5 @@
 import { useState } from "react";
-// import { useContext } from "react";
-// import CartContext from "../../context/CartContext";
+import "./ItemCount.css";
 
 const ItemCount = ({ stock = 0, initial = 1, handleOnAdd }) => {
   const [quantity, setQuantity] = useState(initial);
@@ -20,19 +19,27 @@ const ItemCount = ({ stock = 0, initial = 1, handleOnAdd }) => {
   //   addItem(num)
   // }
   return (
-    <div>
-      <div>
-        <button onClick={decrement}>-</button>
-        <h4>{quantity}</h4>
-        <button className="Button" onClick={increment}>
+    <div className="container">
+      <div className="col" role="group">
+        <button type="button" className="btn btn-info" onClick={decrement}>
+          -
+        </button>
+
+        <span>{quantity}</span>
+
+        <button type="button" className="btn btn-info" onClick={increment}>
           +
         </button>
       </div>
-      <div>
-        <button onClick={() => handleOnAdd(quantity)}>
-          Agregar al carrito
-        </button>
-      </div>
+      <button
+        type="button"
+        className="btn btn-info"
+        onClick={() => {
+          handleOnAdd(quantity);
+        }}
+      >
+        Agregar al carrito
+      </button>
     </div>
   );
 };

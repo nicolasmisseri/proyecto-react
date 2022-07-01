@@ -28,7 +28,7 @@ function NavBar() {
             </Link>
           </li>
           <li className="">
-            <Link to={"./cart"}>
+            <Link to={"./cart"} style={{ textDecoration: 'none', color:"black" }}>
               <CartWidget />
             </Link>
           </li>

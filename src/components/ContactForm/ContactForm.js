@@ -1,25 +1,16 @@
-const ContactForm = (
-  {name,
+import React from "react";
+const ContactForm = ({
+  name,
   email,
   phone,
   setName,
   setEmail,
   setPhone,
-  handleSubmit}
-) => {
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [phone, setPhone] = useState("");
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const response = { name, email, phone };
-  //   console.log("response", response);
-  //   return response;
-  // };
-
+  handleSubmit,
+}) => {
   return (
     <form onSubmit={handleSubmit}>
+      <p>Ingrese sus datos en el siguiente formulario:</p>
       <input
         type="text"
         name="nombre"
@@ -47,7 +38,6 @@ const ContactForm = (
         onChange={(e) => setPhone(e.target.value)}
       ></input>
       <br />
-      {/* <button type="submit">Enviar Formulario</button> */}
     </form>
   );
 };

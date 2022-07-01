@@ -5,6 +5,7 @@ import ItemCart from "../ItemCart/ItemCart";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../services/firebase";
 import ContactForm from "../ContactForm/ContactForm";
+import swal from "sweetalert";
 
 const Cart = () => {
   const { cart, clear, getTotalPrice } = useContext(CartContext);
@@ -13,46 +14,42 @@ const Cart = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
-  const handleSubmit = (e) => {
-    // e.preventDefault();
+  const handleSubmit = () => {
     const response = { name, email, phone };
-    console.log("response", response);
     return response;
   };
 
   const createOrder = () => {
-    console.log("ORDEN GENERADA");
-
     const objOrder = {
       buyer: {
-        name: { name },
-        email: { email },
-        phone: { phone },
+        name,
+        email,
+        phone,
       },
       items: cart,
       total: getTotalPrice(),
     };
-    console.log(objOrder);
 
     const collectionRef = collection(db, "orders");
-    addDoc(collectionRef, objOrder).then(({ id }) => {
-      console.log(`se creo la orden con el id ${id}`);
-    });
+    addDoc(collectionRef, objOrder).then(({ id }) => {});
   };
   const productsInCart = cart.length === 0;
   return (
     <div>
       <h1>Cart</h1>
-      <ContactForm
-        name={name}
-        email={email}
-        phone={phone}
-        setName={setName}
-        setEmail={setEmail}
-        setPhone={setPhone}
-        handleSubmit={handleSubmit}
-      />
       <div>
+        <ContactForm
+          name={name}
+          email={email}
+          phone={phone}
+          setName={setName}
+          setEmail={setEmail}
+          setPhone={setPhone}
+          handleSubmit={handleSubmit}
+        />
+      </div>
+      <div>
+        <h3>Productos seleccionados:</h3>
         {productsInCart ? (
           <>
             <div> NO SE HAN AGREGADO ELEMENTOS AL CARRITO</div>
@@ -69,35 +66,42 @@ const Cart = () => {
                 img={prod.product.img}
                 quantity={prod.product.quantity}
               />
-              <p>EL TOTAL DE LA COMPRA ES DE ${getTotalPrice()} </p>
             </div>
           ))
         ) : (
           []
         )}
       </div>
-
-      <button onClick={() => clear()}>Borrar Todo</button>
-      {!productsInCart && (
+      <div className="alert alert-info" role="alert">
+        EL TOTAL DE LA COMPRA ES DE ${getTotalPrice()}
+      </div>
+      <div>
         <button
-          onClick={() => {
-            createOrder();
-            handleSubmit();
-          }}
+          type="button"
+          className="btn btn-danger"
+          onClick={() => clear()}
         >
-          Generar Orden
+          Borrar Todo
         </button>
-      )}
-
-      {/* <ContactForm
-        name={name}
-        email={email}
-        phone={phone}
-        setName={setName}
-        setEmail={setEmail}
-        setPhone={setPhone}
-        handleSubmit={handleSubmit}
-      /> */}
+        {!productsInCart && (
+          <button
+            type="button"
+            className="btn btn-info"
+            onClick={() => {
+              createOrder();
+              handleSubmit();
+              swal({
+                title: "Perfecto!",
+                text: "Tu orden fue creada con éxito",
+                icon: "success",
+                button: "OK",
+              });
+            }}
+          >
+            Generar Orden
+          </button>
+        )}
+      </div>
     </div>
   );
 };

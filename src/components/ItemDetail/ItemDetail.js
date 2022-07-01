@@ -15,12 +15,12 @@ const ItemDetail = ({ id, name, description, price, img, stock }) => {
 
   return (
     <div>
-      <div id="container">
+      <div id="container2">
         <div className="product-details">
           <h1>{name}</h1>
           <p className="information">{description}</p>
           <div className="control">
-            <button className="btn">
+            <button className="boton">
               <span className="price">US$ {price}</span>
               <span className="shopping-cart">
                 <i className="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -36,7 +36,7 @@ const ItemDetail = ({ id, name, description, price, img, stock }) => {
       </div>
       <footer>
         {quantity > 0 ? (
-          <Link to="/cart">
+          <Link to="/cart" style={{ textDecoration: 'none'}}>
             <span>Finalizar Compra</span>
           </Link>
         ) : (

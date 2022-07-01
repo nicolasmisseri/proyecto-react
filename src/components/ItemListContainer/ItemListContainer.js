@@ -21,13 +21,12 @@ const ItemListContainer = (props) => {
         });
         setProducts(products);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   }, [category]);
 
   return (
     <div className="ItemListContainer">
+      <h1>{category?.toUpperCase() || "Productos"}</h1>
       <ItemList products={products} />
     </div>
   );
